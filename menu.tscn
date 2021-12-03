@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://media/ui/logo.png" type="Texture" id=1]
+[ext_resource path="res://media/ui/arch.png" type="Texture" id=2]
+[ext_resource path="res://media/ui/onlylife.png" type="Texture" id=3]
+[ext_resource path="res://media/ui/walk.png" type="Texture" id=4]
+[ext_resource path="res://media/ui/showlife.png" type="Texture" id=5]
+[ext_resource path="res://universal.tscn" type="PackedScene" id=6]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+func _ready():
+	global.splay(global.sback)
+	
+func _on_arch_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(\"res://arch.tscn\")
+func _on_plane_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(\"res://plane.tscn\")
+func _on_planelife_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(\"res://planelife.tscn\")
+func _on_life_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(\"res://life.tscn\")
+func _input(event):
+	if event.is_action_pressed(\"ui_cancel\"):
+		global.splay(global.sback)
+		get_tree().quit() # default behavior
+"
+
+[node name="root" type="Node"]
+script = SubResource( 1 )
+
+[node name="universal" parent="." instance=ExtResource( 6 )]
+
+[node name="logo" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -125.0
+margin_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mainmenu" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -150.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_constants/hseparation = 50
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plane" type="TextureButton" parent="mainmenu"]
+margin_right = 193.0
+margin_bottom = 400.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="planelife" type="TextureButton" parent="mainmenu"]
+margin_left = 243.0
+margin_right = 436.0
+margin_bottom = 400.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="arch" type="TextureButton" parent="mainmenu"]
+margin_left = 486.0
+margin_right = 679.0
+margin_bottom = 400.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+
+[node name="life" type="TextureButton" parent="mainmenu"]
+margin_left = 729.0
+margin_right = 922.0
+margin_bottom = 400.0
+focus_neighbour_left = NodePath("../Arch")
+focus_neighbour_right = NodePath("../Plane")
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+[connection signal="pressed" from="mainmenu/plane" to="." method="_on_plane_pressed"]
+[connection signal="pressed" from="mainmenu/planelife" to="." method="_on_planelife_pressed"]
+[connection signal="pressed" from="mainmenu/arch" to="." method="_on_arch_pressed"]
+[connection signal="pressed" from="mainmenu/life" to="." method="_on_life_pressed"]

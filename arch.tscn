@@ -1,0 +1,436 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Health.tres" type="DynamicFont" id=1]
+[ext_resource path="res://media/ui/up1.png" type="Texture" id=2]
+[ext_resource path="res://media/ui/head.png" type="Texture" id=3]
+[ext_resource path="res://arch.gd" type="Script" id=4]
+[ext_resource path="res://universal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://media/ui/dn1.png" type="Texture" id=6]
+[ext_resource path="res://media/ui/dn5.png" type="Texture" id=7]
+[ext_resource path="res://media/ui/new.png" type="Texture" id=8]
+[ext_resource path="res://media/ui/default_scheme.png" type="Texture" id=9]
+[ext_resource path="res://media/ui/up5.png" type="Texture" id=10]
+[ext_resource path="res://media/ui/blank_scheme.png" type="Texture" id=11]
+[ext_resource path="res://popupback.tres" type="StyleBox" id=12]
+
+[node name="arch" type="Node"]
+script = ExtResource( 4 )
+
+[node name="universal" parent="." instance=ExtResource( 5 )]
+
+[node name="ConContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -175.0
+margin_top = 25.0
+margin_right = -25.0
+margin_bottom = -25.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New" type="ToolButton" parent="ConContainer"]
+margin_top = 15.0
+margin_right = 168.0
+margin_bottom = 151.0
+icon = ExtResource( 8 )
+
+[node name="Life" type="CenterContainer" parent="ConContainer"]
+margin_top = 155.0
+margin_right = 168.0
+margin_bottom = 395.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConContainer/Life"]
+margin_right = 168.0
+margin_bottom = 240.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConContainer/Life/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 78.0
+alignment = 1
+
+[node name="up1" type="ToolButton" parent="ConContainer/Life/VBoxContainer/HBoxContainer"]
+margin_right = 82.0
+margin_bottom = 78.0
+icon = ExtResource( 2 )
+flat = false
+align = 0
+
+[node name="up5" type="ToolButton" parent="ConContainer/Life/VBoxContainer/HBoxContainer"]
+margin_left = 86.0
+margin_right = 168.0
+margin_bottom = 78.0
+icon = ExtResource( 10 )
+flat = false
+align = 2
+
+[node name="ll" type="Label" parent="ConContainer/Life/VBoxContainer"]
+margin_top = 82.0
+margin_right = 168.0
+margin_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "40"
+align = 1
+valign = 3
+max_lines_visible = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ConContainer/Life/VBoxContainer"]
+margin_top = 162.0
+margin_right = 168.0
+margin_bottom = 240.0
+alignment = 1
+
+[node name="dn1" type="ToolButton" parent="ConContainer/Life/VBoxContainer/HBoxContainer2"]
+margin_right = 82.0
+margin_bottom = 78.0
+icon = ExtResource( 6 )
+flat = false
+align = 0
+
+[node name="dn5" type="ToolButton" parent="ConContainer/Life/VBoxContainer/HBoxContainer2"]
+margin_left = 86.0
+margin_right = 168.0
+margin_bottom = 78.0
+icon = ExtResource( 7 )
+flat = false
+align = 2
+
+[node name="Coin" type="ToolButton" parent="ConContainer"]
+margin_top = 399.0
+margin_right = 168.0
+margin_bottom = 535.0
+icon = ExtResource( 3 )
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scheme" type="TextureButton" parent="HSplitContainer"]
+margin_right = 406.0
+margin_bottom = 600.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="store" type="GridContainer" parent="HSplitContainer"]
+margin_left = 418.0
+margin_right = 824.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 11
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="store1" type="TextureButton" parent="HSplitContainer/store"]
+margin_right = 98.0
+margin_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store2" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 102.0
+margin_right = 200.0
+margin_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store3" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 204.0
+margin_right = 302.0
+margin_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store4" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 306.0
+margin_right = 404.0
+margin_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store5" type="TextureButton" parent="HSplitContainer/store"]
+margin_top = 151.0
+margin_right = 98.0
+margin_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store6" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 102.0
+margin_top = 151.0
+margin_right = 200.0
+margin_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store7" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 204.0
+margin_top = 151.0
+margin_right = 302.0
+margin_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store8" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 306.0
+margin_top = 151.0
+margin_right = 404.0
+margin_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store9" type="TextureButton" parent="HSplitContainer/store"]
+margin_top = 302.0
+margin_right = 98.0
+margin_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store10" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 102.0
+margin_top = 302.0
+margin_right = 200.0
+margin_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store11" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 204.0
+margin_top = 302.0
+margin_right = 302.0
+margin_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store12" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 306.0
+margin_top = 302.0
+margin_right = 404.0
+margin_bottom = 449.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store13" type="TextureButton" parent="HSplitContainer/store"]
+margin_top = 453.0
+margin_right = 98.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store14" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 102.0
+margin_top = 453.0
+margin_right = 200.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store15" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 204.0
+margin_top = 453.0
+margin_right = 302.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="store16" type="TextureButton" parent="HSplitContainer/store"]
+margin_left = 306.0
+margin_top = 453.0
+margin_right = 404.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+custom_styles/panel = ExtResource( 12 )
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopScheme" type="TextureRect" parent="PopupPanel/HBoxContainer"]
+margin_right = 450.0
+margin_bottom = 480.0
+size_flags_horizontal = 7
+size_flags_vertical = 15
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel/HBoxContainer"]
+margin_left = 454.0
+margin_right = 904.0
+margin_bottom = 480.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="remove" type="Button" parent="PopupPanel/HBoxContainer/VBoxContainer"]
+margin_right = 450.0
+margin_bottom = 238.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 1 )
+text = "Remove"
+
+[node name="back" type="Button" parent="PopupPanel/HBoxContainer/VBoxContainer"]
+margin_top = 242.0
+margin_right = 450.0
+margin_bottom = 480.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+
+[node name="TooManySchemes" type="AcceptDialog" parent="."]
+margin_right = 83.0
+margin_bottom = 58.0
+dialog_text = "TooMany Schems Please remove one"
+[connection signal="tree_exiting" from="." to="." method="_on_arch_tree_exiting"]
+[connection signal="pressed" from="ConContainer/New" to="." method="_on_New_pressed"]
+[connection signal="pressed" from="ConContainer/Life/VBoxContainer/HBoxContainer/up1" to="." method="_on_up1_pressed"]
+[connection signal="pressed" from="ConContainer/Life/VBoxContainer/HBoxContainer/up5" to="." method="_on_up5_pressed"]
+[connection signal="pressed" from="ConContainer/Life/VBoxContainer/HBoxContainer2/dn1" to="." method="_on_dn1_pressed"]
+[connection signal="pressed" from="ConContainer/Life/VBoxContainer/HBoxContainer2/dn5" to="." method="_on_dn5_pressed"]
+[connection signal="pressed" from="ConContainer/Coin" to="." method="_on_Coin_pressed"]
+[connection signal="pressed" from="HSplitContainer/Scheme" to="." method="_on_Scheme_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store1" to="." method="_on_store1_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store2" to="." method="_on_store2_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store3" to="." method="_on_store3_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store4" to="." method="_on_store4_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store5" to="." method="_on_store5_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store6" to="." method="_on_store6_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store7" to="." method="_on_store7_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store8" to="." method="_on_store8_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store9" to="." method="_on_store9_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store10" to="." method="_on_store10_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store11" to="." method="_on_store11_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store12" to="." method="_on_store12_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store13" to="." method="_on_store13_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store14" to="." method="_on_store14_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store15" to="." method="_on_store15_pressed"]
+[connection signal="pressed" from="HSplitContainer/store/store16" to="." method="_on_store16_pressed"]
+[connection signal="pressed" from="PopupPanel/HBoxContainer/VBoxContainer/remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="PopupPanel/HBoxContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
