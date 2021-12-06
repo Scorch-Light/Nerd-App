@@ -151,6 +151,7 @@ icon = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="VBoxContainer/New" to="." method="_on_New_pressed"]
 [connection signal="pressed" from="VBoxContainer/Dice" to="." method="_on_Dice_pressed"]
 [connection signal="pressed" from="VBoxContainer/Coin" to="." method="_on_Coin_pressed"]

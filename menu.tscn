@@ -106,6 +106,7 @@ size_flags_vertical = 7
 texture_normal = ExtResource( 3 )
 expand = true
 stretch_mode = 5
+
 [connection signal="pressed" from="mainmenu/plane" to="." method="_on_plane_pressed"]
 [connection signal="pressed" from="mainmenu/planelife" to="." method="_on_planelife_pressed"]
 [connection signal="pressed" from="mainmenu/arch" to="." method="_on_arch_pressed"]

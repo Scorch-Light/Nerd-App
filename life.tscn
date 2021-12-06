@@ -10,8 +10,6 @@
 [ext_resource path="res://media/ui/head.png" type="Texture" id=8]
 [ext_resource path="res://media/ui/new.png" type="Texture" id=9]
 
-
-
 [node name="Life" type="Node"]
 script = ExtResource( 6 )
 
@@ -321,6 +319,7 @@ margin_top = 277.0
 margin_right = 140.0
 margin_bottom = 413.0
 icon = ExtResource( 8 )
+
 [connection signal="ready" from="." to="." method="_on_Life_ready"]
 [connection signal="tree_exiting" from="." to="." method="_on_Life_tree_exiting"]
 [connection signal="pressed" from="Life1/VBoxContainer/HBoxContainer/up11" to="." method="_on_up11_pressed"]

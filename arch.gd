@@ -69,16 +69,22 @@ func _on_Scheme_pressed():
 
 func _on_up1_pressed():
 	plt=plt+1
-	get_node("ConContainer/Life/VBoxContainer/ll").set_text(str(plt))
+	update_lifetext()
 func _on_up5_pressed():
 	plt=plt+5
-	get_node("ConContainer/Life/VBoxContainer/ll").set_text(str(plt))
+	update_lifetext()
 func _on_dn1_pressed():
 	plt=plt-1
-	get_node("ConContainer/Life/VBoxContainer/ll").set_text(str(plt))
+	update_lifetext()
 func _on_dn5_pressed():
 	plt=plt-5
+	update_lifetext()
+
+func update_lifetext():
 	get_node("ConContainer/Life/VBoxContainer/ll").set_text(str(plt))
+	if plt <= 0: get_node("ConContainer/Life/VBoxContainer/ll").add_color_override("font_color", Color( 1, 0, 0, 1 ))
+	else: get_node("ConContainer/Life/VBoxContainer/ll").add_color_override("font_color", Color( 1, 1, 1, 1 ))
+
 
 func _on_arch_tree_exiting():
 	global.plt=plt

@@ -408,6 +408,7 @@ text = "Back"
 margin_right = 83.0
 margin_bottom = 58.0
 dialog_text = "TooMany Schems Please remove one"
+
 [connection signal="tree_exiting" from="." to="." method="_on_arch_tree_exiting"]
 [connection signal="pressed" from="ConContainer/New" to="." method="_on_New_pressed"]
 [connection signal="pressed" from="ConContainer/Life/VBoxContainer/HBoxContainer/up1" to="." method="_on_up1_pressed"]
