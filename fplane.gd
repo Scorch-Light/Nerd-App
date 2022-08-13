@@ -62,43 +62,50 @@ func p_dice():
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		var d=rng.randi_range(1,6)
-		print(d)
+		
 		if d ==6:
+			print("Die: " + str(d) +" Planeswalk" )
 			dnode.set_button_icon(load("res://media/ui/walk.png"))
 			global.splay(global.swalk)
 			fplane.p_cycle()
 		elif dchaos == 1 or d==5:
+			print("Die: " + str(d) +" Chaos")
 			dnode.set_button_icon(load("res://media/ui/chaos.png"))
 			global.splay(global.schaos)
 			if chaos(p)==true:
 				pop_chaos()
 		else:
-			
+			print("Die: " + str(d) +" Blank")
 			dnode.set_button_icon(load("res://media/ui/empty.png"))
 
 func p_cycle():
 	dchaos = 0
+	
+	if pname[psuf[p]] == "chaotic-aether.png": 
+		dchaos=1
+		
 	if p==pmax:
 		p=0
 	else:
-		if pname[psuf[p]] == "chaotic-aether.png": 
-			dchaos=1
 		p=p+1
-		print(p)
-		if phenom(psuf[p]) == 2: # temp bypass 
-			p_cycle() #temp
-		else:
-			pnode.set_texture(load(pdir+pname[psuf[p]]))
-
+		
+	if phenom(psuf[p]) == 2: # temp bypass 
+		print("Bypassed P: "+ str(p) +" "+ psuf[p] )
+		p_cycle() #temp
+	else:
+		pnode.set_texture(load(pdir+pname[psuf[p]]))
+		print("P: " + str(p))
 func p_new():
 	p=0
 	dchaos=0
 	randomize()
 	psuf.shuffle()
-	
-	testcard("pools-of-becoming.png" ,0)
-	
-	
+#
+#	testcard("chaotic-aether.png" ,1)
+#	testcard("pools-of-becoming.png" ,2)
+#	testcard("interplanar-tunnel.png" ,3)
+#
+#
 	pnode.set_texture(load(pdir+pname[psuf[p]]))
 	global.splay(global.scard)
 	#Canot start with Phenomenom
